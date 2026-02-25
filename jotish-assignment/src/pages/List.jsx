@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getEmployes } from "../services/api";
 import { useNavigate } from "react-router-dom";
+
 const List = () => {
   const [employeData, setEmployeData] = useState([]);
   const navigate = useNavigate();
+  const EmployeHeading =
+    "py-3 px-6 text-center border border-pink-300 dark:border-gray-600";
   useEffect(() => {
     getEmployes().then(setEmployeData);
   }, []);
@@ -30,32 +33,20 @@ const List = () => {
         <div className="bg-gray-100 p-8">
           <table className="table-auto min-w-full border-separate border-spacing-2 border border-gray-400 dark:border-gray-500">
             <thead>
-              <tr className="bg-gray-50 text-gray-600 uppercase text-sm leading-normal">
-                <th className="py-3 px-6 text-left border border-gray-300 dark:border-gray-600">
-                  Name
-                </th>
-                <th className="py-3 px-6 text-left border border-gray-300 dark:border-gray-600">
-                  Position
-                </th>
-                <th className="py-3 px-6 text-left border border-gray-300 dark:border-gray-600">
-                  Office
-                </th>
-                <th className="py-3 px-6 text-left border border-gray-300 dark:border-gray-600">
-                  Extn
-                </th>
-                <th className="py-3 px-6 text-left border border-gray-300 dark:border-gray-600">
-                  Start_Date
-                </th>
-                <th className="py-3 px-6 text-left border border-gray-300 dark:border-gray-600">
-                  Salary
-                </th>
+              <tr className={EmployeHeading}>
+                <th className={EmployeHeading}>Name</th>
+                <th className={EmployeHeading}>Position</th>
+                <th className={EmployeHeading}>Office</th>
+                <th className={EmployeHeading}>Extn</th>
+                <th className={EmployeHeading}>Start_Date</th>
+                <th className={EmployeHeading}>Salary</th>
               </tr>
             </thead>
             <tbody>
               {employeData.map((emp, index) => (
                 <tr
                   key={emp}
-                  className="rounded shadow cursor-pointer hover:scale-105 transition"
+                  className="rounded shadow cursor-pointer hover:scale-105 transition bg-amber-200"
                   onClick={() => navigate(`/details`)}
                 >
                   <td className="border border-gray-300 dark:border-gray-600 bg">

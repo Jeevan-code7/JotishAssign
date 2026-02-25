@@ -50,6 +50,36 @@ const ChartPage = () => {
       pv: 4800,
       amt: 2400,
     },
+    {
+      name: "Jena Gaines",
+      uv: 90560,
+      pv: 4800,
+      amt: 2400,
+    },
+    {
+      name: "Sonya Frost",
+      uv: 103600,
+      pv: 4800,
+      amt: 2400,
+    },
+    {
+      name: "Quinn Flynn",
+      uv: 342000,
+      pv: 4800,
+      amt: 2400,
+    },
+    {
+      name: "Charde Marshall",
+      uv: 470600,
+      pv: 4800,
+      amt: 2400,
+    },
+    {
+      name: "Haley Kennedy",
+      uv: 313500,
+      pv: 4800,
+      amt: 2400,
+    },
   ];
 
   const margin = {
@@ -63,14 +93,14 @@ const ChartPage = () => {
   }, []);
   return (
     <>
-      <h1 className="text-5xl bg-pink-400 text-gray-50">
+      <h1 className="text-5xl bg-pink-400 text-gray-50 flex justify-center">
         Salaries of Employees
       </h1>
       <div className="h-screen flex justify-center items-center">
         <BarChart width={800} height={500} data={data} margin={margin}>
           <XAxis dataKey="name" stroke="#8884d8" />
           <YAxis
-            domain={[0, 100000]}
+            domain={[0, 500000]}
             tickFormatter={(value) => `$${value.toLocaleString()}`}
           />
           <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
