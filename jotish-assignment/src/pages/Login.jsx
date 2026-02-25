@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
   function handleLogin() {
-    // if (username == "textuser" && password == "Test123") {
-    //   navigate("/List");
-    // }
+    if (username == "textuser" && password == "Test123") {
+      navigate("/list");
+    } else {
+      toast("user not found");
+    }
   }
   return (
     <div className="h-screen flex justify-center items-center bg-blue-100">
@@ -17,12 +22,14 @@ const Login = () => {
           className="w-full p-2 border mb-3 rounded"
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
         <input
           type="password"
           className="w-full p-2 border mb-3 rounded"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <p className="mb-2 text-orange-400">forgot pasword?</p>
         <button
@@ -31,6 +38,7 @@ const Login = () => {
         >
           Login
         </button>
+        <ToastContainer />
       </div>
     </div>
   );
